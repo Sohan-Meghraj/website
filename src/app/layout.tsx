@@ -8,7 +8,6 @@ import { ExitIntent } from "@/components/layout/ExitIntent";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { PrototypeBadge } from "@/components/PrototypeBadge";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
@@ -140,7 +139,6 @@ export default function RootLayout({
               <StickyCTA />
               <ExitIntent />
               <Toaster />
-              <PrototypeBadge />
             </div>
           </ErrorBoundary>
         </Providers>

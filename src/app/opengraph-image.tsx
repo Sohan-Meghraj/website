@@ -70,22 +70,6 @@ export default function OGImage() {
         >
           Founder-first · Long-term ownership · 100% confidential
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 40,
-            right: 40,
-            fontSize: 16,
-            padding: "8px 16px",
-            border: "2px solid #B8860B",
-            color: "#B8860B",
-            borderRadius: 6,
-            letterSpacing: 2,
-            fontFamily: "system-ui, sans-serif",
-          }}
-        >
-          PROTOTYPE
-        </div>
       </div>
     ),
     { ...size },

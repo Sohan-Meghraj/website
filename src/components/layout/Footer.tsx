@@ -85,13 +85,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-secondary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/75">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-            <p>© 2026 Pyrite Ventures. All rights reserved.</p>
-            <span className="hidden md:inline text-secondary-foreground/40">·</span>
-            <span className="text-yellow-400/90 font-mono text-xs uppercase tracking-wider">
-              Prototype v0.1 · Not a real company
-            </span>
-          </div>
+          <p>© 2026 Pyrite Ventures. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy
