@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin } from "lucide-react";
+import { Linkedin, MessageCircle, Phone } from "lucide-react";
 import { LINKEDIN_URL } from "@/lib/constants";
 
 export function Footer() {
@@ -11,10 +11,10 @@ export function Footer() {
             <Link href="/" className="font-serif text-2xl font-bold tracking-tight text-primary block">
               Pyrite Ventures
             </Link>
-            <p className="text-secondary-foreground/70 font-medium text-lg">
+            <p className="text-secondary-foreground/85 font-medium text-lg">
               Built to Acquire. Driven to Scale.
             </p>
-            <p className="text-secondary-foreground/50 max-w-xs mt-4">
+            <p className="text-secondary-foreground/75 max-w-xs mt-4">
               We acquire and grow service-based businesses in India with a founder-first philosophy.
             </p>
           </div>
@@ -23,22 +23,22 @@ export function Footer() {
             <h4 className="font-semibold text-lg text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                <Link href="/" className="text-secondary-foreground/85 hover:text-primary transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                <Link href="/about" className="text-secondary-foreground/85 hover:text-primary transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/sell" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                <Link href="/sell" className="text-secondary-foreground/85 hover:text-primary transition-colors">
                   For Sellers
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                <Link href="/contact" className="text-secondary-foreground/85 hover:text-primary transition-colors">
                   Contact
                 </Link>
               </li>
@@ -47,15 +47,36 @@ export function Footer() {
 
           <div className="space-y-4">
             <h4 className="font-semibold text-lg text-white">Contact</h4>
-            <ul className="space-y-2 text-secondary-foreground/70">
+            <ul className="space-y-2 text-secondary-foreground/85">
               <li>
                 <a href="mailto:info@pyriteventures.com" className="hover:text-primary transition-colors">
                   info@pyriteventures.com
                 </a>
               </li>
-              <li className="pt-2">
-                <a href={LINKEDIN_URL || "#"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary transition-colors text-white">
-                  <Linkedin size={20} />
+              <li>
+                <a href="tel:+910000000000" className="hover:text-primary transition-colors inline-flex items-center gap-2">
+                  <Phone size={14} aria-hidden="true" /> +91 00000 00000
+                </a>
+              </li>
+              <li className="pt-2 flex items-center gap-3">
+                <a
+                  href="https://wa.me/910000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366]/90 hover:bg-[#25D366] transition-colors text-white"
+                  data-event="footer-whatsapp"
+                >
+                  <MessageCircle size={20} aria-hidden="true" />
+                  <span className="sr-only">WhatsApp (placeholder)</span>
+                </a>
+                <a
+                  href={LINKEDIN_URL || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary-foreground/10 hover:bg-primary transition-colors text-white"
+                  data-event="footer-linkedin"
+                >
+                  <Linkedin size={20} aria-hidden="true" />
                   <span className="sr-only">LinkedIn</span>
                 </a>
               </li>
@@ -63,8 +84,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-secondary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/50">
-          <p>© 2026 Pyrite Ventures. All rights reserved.</p>
+        <div className="mt-16 pt-8 border-t border-secondary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-secondary-foreground/75">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p>© 2026 Pyrite Ventures. All rights reserved.</p>
+            <span className="hidden md:inline text-secondary-foreground/40">·</span>
+            <span className="text-yellow-400/90 font-mono text-xs uppercase tracking-wider">
+              Prototype v0.1 · Not a real company
+            </span>
+          </div>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy

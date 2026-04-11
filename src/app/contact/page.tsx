@@ -16,7 +16,7 @@ export default function Contact() {
     <div className="w-full pb-12 bg-card min-h-screen">
       {/* HEADER */}
       <section className="bg-secondary text-white pt-40 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
             initial="hidden"
@@ -25,7 +25,7 @@ export default function Contact() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Book a Confidential 30-Minute Call</h1>
-            <p className="text-lg text-white/80 font-light">
+            <p className="text-lg text-white/95 font-light">
               No pressure. No obligations. Let&apos;s discuss your business and your goals for the future.
             </p>
           </motion.div>

@@ -26,7 +26,7 @@ export default function About() {
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
       <section className="bg-secondary text-white pt-44 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
             initial="hidden"
@@ -35,7 +35,7 @@ export default function About() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-6">About Pyrite Ventures</h1>
-            <p className="text-lg sm:text-xl text-white/80 font-light">
+            <p className="text-lg sm:text-xl text-white/95 font-light">
               Built by operators. Driven by long-term growth. Dedicated to preserving your legacy.
             </p>
           </motion.div>
@@ -53,13 +53,12 @@ export default function About() {
               variants={fadeInUp}
               className="md:col-span-5 relative"
             >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-secondary flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-white/20 select-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-32 h-32 fill-current opacity-40">
-                    <circle cx="50" cy="38" r="22" />
-                    <ellipse cx="50" cy="90" rx="36" ry="26" />
-                  </svg>
-                  <span className="text-sm mt-2 text-white/30">Founder Photo</span>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center select-none">
+                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
+                    <span className="font-serif text-6xl font-bold text-white">PV</span>
+                  </div>
+                  <span className="text-sm mt-6 text-white/50 tracking-wider uppercase">Founder Photo · Placeholder</span>
                 </div>
               </div>
             </motion.div>

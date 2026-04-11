@@ -2,10 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { openCalendly } from "@/lib/constants";
+
+const handleStickyClick = () => {
+  track("cta_click", { location: "sticky", label: "Talk to Us" });
+  openCalendly();
+};
 
 export function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
@@ -60,7 +66,7 @@ export function StickyCTA() {
           {/* Mobile version (full width bottom) */}
           <div className="md:hidden">
             <Button
-              onClick={openCalendly}
+              onClick={handleStickyClick}
               className="w-full rounded-none bg-primary hover:bg-primary/90 text-secondary py-7 text-lg font-semibold shadow-lg flex items-center justify-center gap-2"
             >
               Talk to Us <ArrowRight size={20} />
@@ -70,7 +76,7 @@ export function StickyCTA() {
           {/* Desktop version (floating button) */}
           <div className="hidden md:block">
             <Button
-              onClick={openCalendly}
+              onClick={handleStickyClick}
               className="rounded-full bg-primary hover:bg-primary/90 text-secondary py-7 px-8 text-lg font-semibold shadow-xl border-2 border-primary-foreground/20 hover:scale-105 transition-transform duration-300 flex items-center gap-2"
             >
               Talk to Us <ArrowRight size={20} />

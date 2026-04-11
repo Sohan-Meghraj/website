@@ -13,7 +13,7 @@ export default function Sell() {
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
       <section className="bg-secondary text-white pt-44 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
             initial="hidden"
@@ -22,7 +22,7 @@ export default function Sell() {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Ready to Sell Your Business?</h1>
-            <p className="text-lg sm:text-xl text-white/80 font-light">
+            <p className="text-lg sm:text-xl text-white/95 font-light">
               A transparent, founder-friendly acquisition process designed to protect your legacy and reward your hard work.
             </p>
           </motion.div>

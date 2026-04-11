@@ -3,10 +3,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { track } from "@vercel/analytics";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 import { openCalendly } from "@/lib/constants";
+
+const trackedOpenCalendly = (location: string) => {
+  track("cta_click", { location, label: "Talk to Us" });
+  openCalendly();
+};
 
 export function Navbar() {
   const pathname = usePathname();
@@ -63,8 +69,9 @@ export function Navbar() {
             </nav>
             <Button
               data-testid="nav-cta-button"
+              data-event="nav-cta"
               className="bg-primary hover:bg-primary/90 text-primary-foreground border-0"
-              onClick={openCalendly}
+              onClick={() => trackedOpenCalendly("navbar")}
             >
               Talk to Us
             </Button>
@@ -74,12 +81,14 @@ export function Navbar() {
           <button
             className="md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {isMobileMenuOpen ? (
-              <X className={useDarkBg ? "text-white" : "text-foreground"} />
+              <X aria-hidden="true" className={useDarkBg ? "text-white" : "text-foreground"} />
             ) : (
-              <Menu className={useDarkBg ? "text-white" : "text-foreground"} />
+              <Menu aria-hidden="true" className={useDarkBg ? "text-white" : "text-foreground"} />
             )}
           </button>
         </div>
@@ -87,7 +96,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-border py-4 px-4 flex flex-col gap-4">
+        <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-border py-4 px-4 flex flex-col gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -100,7 +109,7 @@ export function Navbar() {
           ))}
           <Button
             className="w-full bg-primary hover:bg-primary/90 mt-2"
-            onClick={() => { openCalendly(); setIsMobileMenuOpen(false); }}
+            onClick={() => { trackedOpenCalendly("mobile-menu"); setIsMobileMenuOpen(false); }}
           >
             Talk to Us
           </Button>

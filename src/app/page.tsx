@@ -2,11 +2,17 @@
 
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Building, LineChart, MapPin, TrendingUp, User, Clock, CheckCircle2, Linkedin } from "lucide-react";
 import LeadForm from "@/components/LeadForm";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { openCalendly, LINKEDIN_URL } from "@/lib/constants";
+
+const handleHeroPrimaryClick = () => {
+  track("cta_click", { location: "hero", label: "Talk to Us" });
+  openCalendly();
+};
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -36,7 +42,7 @@ export default function Home() {
         <div
           className="absolute inset-0 z-0 opacity-40 mix-blend-overlay"
           style={{
-            backgroundImage: "url('/hero-bg.png')",
+            backgroundImage: "url('/hero-bg.svg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -60,7 +66,7 @@ export default function Home() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg sm:text-xl md:text-2xl text-white/80 mb-10 max-w-2xl font-light"
+              className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 max-w-2xl font-light"
             >
               Founder-first. Long-term ownership. 100% confidential process.
             </motion.p>
@@ -69,8 +75,9 @@ export default function Home() {
               <Button
                 size="lg"
                 data-testid="hero-cta-primary"
+                data-event="hero-cta-primary"
                 className="text-lg py-7 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                onClick={openCalendly}
+                onClick={handleHeroPrimaryClick}
               >
                 Talk to Us
               </Button>
@@ -207,7 +214,7 @@ export default function Home() {
 
       {/* WHY CHOOSE US */}
       <section className="py-24 bg-secondary text-white relative">
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
             initial="hidden"
@@ -217,7 +224,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Why Choose Pyrite Ventures</h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">
               We are not flippers or brokers. We buy to hold, build, and grow.
             </p>
           </motion.div>
@@ -267,15 +274,14 @@ export default function Home() {
               variants={fadeInUp}
               className="md:col-span-5 relative"
             >
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative bg-secondary flex items-center justify-center">
-                <div className="flex flex-col items-center justify-center text-white/20 select-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-32 h-32 fill-current opacity-40">
-                    <circle cx="50" cy="38" r="22" />
-                    <ellipse cx="50" cy="90" rx="36" ry="26" />
-                  </svg>
-                  <span className="text-sm mt-2 text-white/30">Founder Photo</span>
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+                <div className="flex flex-col items-center justify-center select-none">
+                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
+                    <span className="font-serif text-6xl font-bold text-white">PV</span>
+                  </div>
+                  <span className="text-sm mt-6 text-white/50 tracking-wider uppercase">Founder Photo · Placeholder</span>
                 </div>
-                <div className="absolute inset-0 border-4 border-white/20 rounded-2xl pointer-events-none" />
+                <div className="absolute inset-0 border-4 border-primary/20 rounded-2xl pointer-events-none" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary rounded-full opacity-20 blur-2xl pointer-events-none" />
             </motion.div>
@@ -357,15 +363,15 @@ export default function Home() {
           >
             <div className="text-center md:border-r border-white/20 px-8">
               <div className="font-serif text-3xl font-bold text-primary mb-1">5+</div>
-              <div className="text-sm text-white/70">businesses evaluated</div>
+              <div className="text-sm text-white/90">businesses evaluated</div>
             </div>
             <div className="text-center md:border-r border-white/20 px-8">
               <div className="font-serif text-3xl font-bold text-primary mb-1">Pan-India</div>
-              <div className="text-sm text-white/70">active discussions</div>
+              <div className="text-sm text-white/90">active discussions</div>
             </div>
             <div className="text-center px-8">
               <div className="font-serif text-3xl font-bold text-primary mb-1">100%</div>
-              <div className="text-sm text-white/70">confidential process</div>
+              <div className="text-sm text-white/90">confidential process</div>
             </div>
           </motion.div>
 
@@ -377,8 +383,8 @@ export default function Home() {
               variants={fadeInUp}
               className="bg-card p-8 rounded-xl border border-border"
             >
-              <div className="flex gap-1 text-primary mb-6">
-                {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+              <div className="flex gap-1 text-primary mb-6" role="img" aria-label="5 out of 5 stars">
+                {[1,2,3,4,5].map(star => <svg key={star} aria-hidden="true" className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
               </div>
               <p className="text-lg text-secondary italic mb-6">
                 &quot;Working with Pyrite felt completely different from every other buyer I met. They genuinely cared about what happened to my team. It wasn&apos;t just a financial transaction for them.&quot;
@@ -393,8 +399,8 @@ export default function Home() {
               variants={fadeInUp}
               className="bg-card p-8 rounded-xl border border-border"
             >
-              <div className="flex gap-1 text-primary mb-6">
-                {[1,2,3,4,5].map(star => <svg key={star} className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+              <div className="flex gap-1 text-primary mb-6" role="img" aria-label="5 out of 5 stars">
+                {[1,2,3,4,5].map(star => <svg key={star} aria-hidden="true" className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
               </div>
               <p className="text-lg text-secondary italic mb-6">
                 &quot;The process was transparent from day one. No surprises, no games. Just a fair, founder-friendly conversation about the future of my business.&quot;
