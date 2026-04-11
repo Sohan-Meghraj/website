@@ -12,7 +12,7 @@ export default function Sell() {
   return (
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
-      <section className="bg-secondary text-white pt-44 pb-20 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div

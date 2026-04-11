@@ -274,12 +274,12 @@ export default function Home() {
               variants={fadeInUp}
               className="md:col-span-5 relative"
             >
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+              <div className="h-80 rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center select-none">
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
-                    <span className="font-serif text-6xl font-bold text-white">PV</span>
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
+                    <span className="font-serif text-5xl font-bold text-white">PV</span>
                   </div>
-                  <span className="text-sm mt-6 text-white/50 tracking-wider uppercase">Founder Photo · Placeholder</span>
+                  <span className="text-xs mt-4 text-white/50 tracking-wider uppercase">Founder Photo</span>
                 </div>
                 <div className="absolute inset-0 border-4 border-primary/20 rounded-2xl pointer-events-none" />
               </div>

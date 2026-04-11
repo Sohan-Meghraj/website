@@ -25,7 +25,7 @@ export default function About() {
   return (
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
-      <section className="bg-secondary text-white pt-44 pb-20 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-32 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
@@ -43,9 +43,9 @@ export default function About() {
       </section>
 
       {/* FOUNDER STORY */}
-      <section className="py-20 bg-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -53,12 +53,12 @@ export default function About() {
               variants={fadeInUp}
               className="md:col-span-5 relative md:sticky md:top-24"
             >
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+              <div className="h-80 rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center select-none">
-                  <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
-                    <span className="font-serif text-6xl font-bold text-white">PV</span>
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
+                    <span className="font-serif text-5xl font-bold text-white">PV</span>
                   </div>
-                  <span className="text-sm mt-6 text-white/50 tracking-wider uppercase">Founder Photo · Placeholder</span>
+                  <span className="text-xs mt-4 text-white/50 tracking-wider uppercase">Founder Photo</span>
                 </div>
               </div>
             </motion.div>
