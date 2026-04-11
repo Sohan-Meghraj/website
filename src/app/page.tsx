@@ -266,7 +266,7 @@ export default function Home() {
       {/* FOUNDER SECTION */}
       <section className="py-24 bg-card">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             <motion.div
               initial="hidden"
               whileInView="visible"

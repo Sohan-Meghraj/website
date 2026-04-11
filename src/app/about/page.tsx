@@ -45,15 +45,15 @@ export default function About() {
       {/* FOUNDER STORY */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="md:col-span-5 relative"
+              className="md:col-span-5 relative md:sticky md:top-24"
             >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center select-none">
                   <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
                     <span className="font-serif text-6xl font-bold text-white">PV</span>
