@@ -54,7 +54,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-4xl"
+            className="max-w-4xl mx-auto text-center"
           >
             <motion.h1
               variants={fadeInUp}
@@ -66,12 +66,12 @@ export default function Home() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 max-w-2xl font-light"
+              className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 max-w-2xl mx-auto font-light"
             >
               Founder-first. Long-term ownership. 100% confidential process.
             </motion.p>
 
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12">
+            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 mb-12 justify-center">
               <Button
                 size="lg"
                 data-testid="hero-cta-primary"
