@@ -13,9 +13,9 @@ const fadeInUp: Variants = {
 
 export default function Contact() {
   return (
-    <div className="w-full pt-24 pb-12 bg-card min-h-screen">
+    <div className="w-full pb-12 bg-card min-h-screen">
       {/* HEADER */}
-      <section className="bg-secondary text-white py-16 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-40 pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.png')] opacity-10 bg-cover bg-center mix-blend-overlay" />
         <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
           <motion.div
