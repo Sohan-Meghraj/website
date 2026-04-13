@@ -15,35 +15,35 @@ export default function Contact() {
   return (
     <div className="w-full pb-12 bg-card min-h-screen">
       {/* HEADER */}
-      <section className="bg-secondary text-white pt-32 pb-12 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-32 pb-12 xl:pt-40 xl:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
-        <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl xl:max-w-6xl relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-3xl xl:max-w-4xl mx-auto"
           >
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Book a Confidential 30-Minute Call</h1>
-            <p className="text-lg text-white/95 font-light">
+            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-4">Book a Confidential 30-Minute Call</h1>
+            <p className="text-lg xl:text-xl text-white/95 font-light">
               No pressure. No obligations. Let&apos;s discuss your business and your goals for the future.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="py-10 sm:py-16 xl:py-24">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 xl:gap-12">
 
             {/* Calendly Column */}
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
-              className="lg:col-span-5"
+              className="md:col-span-5"
             >
-              <div className="bg-white p-8 rounded-xl border border-border shadow-sm h-full flex flex-col items-center justify-center min-h-[400px] text-center">
+              <div className="bg-white p-6 sm:p-8 rounded-xl border border-border shadow-sm h-full flex flex-col items-center justify-center md:min-h-[400px] text-center">
                 <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mb-6">
                   <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -74,7 +74,7 @@ export default function Contact() {
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
-              className="lg:col-span-7"
+              className="md:col-span-7"
             >
               <div className="h-full">
                 <LeadForm />

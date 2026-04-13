@@ -25,17 +25,17 @@ export default function About() {
   return (
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
-      <section className="bg-secondary text-white pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-32 pb-16 xl:pt-40 xl:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
-        <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl xl:max-w-6xl relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-3xl xl:max-w-4xl mx-auto"
           >
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-6">About Pyrite Ventures</h1>
-            <p className="text-lg sm:text-xl text-white/95 font-light">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold mb-6">About Pyrite Ventures</h1>
+            <p className="text-lg sm:text-xl xl:text-2xl text-white/95 font-light">
               Built by operators. Driven by long-term growth. Dedicated to preserving your legacy.
             </p>
           </motion.div>
@@ -43,8 +43,8 @@ export default function About() {
       </section>
 
       {/* FOUNDER STORY */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="py-12 sm:py-16 xl:py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
             <motion.div
               initial="hidden"
@@ -70,7 +70,7 @@ export default function About() {
               variants={staggerContainer}
               className="md:col-span-7 space-y-6 text-lg text-muted-foreground"
             >
-              <h2 className="font-serif text-4xl font-bold text-secondary mb-2">The Founder&apos;s Story</h2>
+              <h2 className="font-serif text-4xl xl:text-5xl font-bold text-secondary mb-2">The Founder&apos;s Story</h2>
               <p className="text-xl font-medium text-primary mb-6">Founder & CEO, Pyrite Ventures</p>
 
               <p>
@@ -103,8 +103,8 @@ export default function About() {
       </section>
 
       {/* CAREER TIMELINE */}
-      <section className="py-20 bg-card">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+      <section className="py-12 sm:py-20 xl:py-28 bg-card">
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl xl:max-w-5xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -112,7 +112,7 @@ export default function About() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-secondary mb-4">Track Record of Excellence</h2>
+            <h2 className="font-serif text-3xl md:text-4xl xl:text-5xl font-bold text-secondary mb-4">Track Record of Excellence</h2>
             <p className="text-lg text-muted-foreground">Over two decades of driving growth and transformation</p>
           </motion.div>
 
@@ -148,8 +148,8 @@ export default function About() {
       </section>
 
       {/* WHAT MAKES US DIFFERENT */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="py-12 sm:py-20 xl:py-28 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -157,7 +157,7 @@ export default function About() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-secondary mb-4">What Makes Pyrite Different</h2>
+            <h2 className="font-serif text-3xl md:text-4xl xl:text-5xl font-bold text-secondary mb-4">What Makes Pyrite Different</h2>
           </motion.div>
 
           <motion.div
@@ -165,19 +165,19 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           >
             {[
               { icon: Shield, title: "Long-Term Stewards", desc: "We are not looking for a quick flip. We buy businesses to hold and grow them for the long haul, protecting your legacy." },
               { icon: Zap, title: "Operational Expertise", desc: "We bring enterprise-grade operational experience, digital modernization, and strategic growth playbooks to your business." },
               { icon: Target, title: "Flexible Deal Structures", desc: "Whether you want a complete exit, partial sale, or to stay on as an operating partner, we design a deal that works for your specific goals." }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-card p-8 rounded-xl text-center border border-border">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <item.icon className="w-8 h-8 text-primary" />
+              <motion.div key={i} variants={fadeInUp} className="bg-card p-6 md:p-8 xl:p-10 rounded-xl text-center border border-border">
+                <div className="w-16 h-16 xl:w-20 xl:h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                  <item.icon className="w-8 h-8 xl:w-10 xl:h-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-4">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <h3 className="text-xl xl:text-2xl font-semibold text-secondary mb-4">{item.title}</h3>
+                <p className="text-muted-foreground xl:text-lg">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -185,9 +185,9 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary text-center">
+      <section className="py-12 sm:py-20 xl:py-28 bg-secondary text-center">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-8">Ready to have a conversation?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl xl:text-5xl font-bold text-white mb-8">Ready to have a conversation?</h2>
           <Button asChild size="lg" className="text-lg py-7 px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
             <Link href="/contact" className="flex items-center gap-2">
               Book a Confidential Call <ArrowRight className="w-5 h-5" />

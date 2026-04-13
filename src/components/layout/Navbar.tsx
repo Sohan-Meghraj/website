@@ -39,12 +39,21 @@ export function Navbar() {
   const useDarkBg = isHome && !scrolled;
 
   return (
+    <>
+    {/* Mobile Menu Backdrop — outside header so z-index layers correctly */}
+    {isMobileMenuOpen && (
+      <div
+        className="md:hidden fixed inset-0 bg-black/30 z-40"
+        onClick={() => setIsMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
+    )}
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         useDarkBg ? "bg-transparent py-5" : "bg-white/95 backdrop-blur-md shadow-sm py-3"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <span className="font-serif text-2xl font-bold tracking-tight text-primary">
@@ -59,7 +68,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors hover:text-primary py-2 px-1 ${
                     useDarkBg ? "text-white/90 hover:text-white" : "text-foreground"
                   } ${pathname === link.href ? "!text-primary" : ""}`}
                 >
@@ -79,7 +88,7 @@ export function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-foreground p-3 -mr-1 min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
@@ -96,12 +105,12 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-border py-4 px-4 flex flex-col gap-4">
+        <div id="mobile-menu" className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-border py-4 px-4 flex flex-col gap-2">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-base font-medium py-2 text-foreground"
+              className="text-base font-medium py-3 text-foreground"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
@@ -116,6 +125,7 @@ export function Navbar() {
         </div>
       )}
     </header>
+    </>
   );
 }
 

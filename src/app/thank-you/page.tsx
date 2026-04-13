@@ -14,17 +14,17 @@ export default function ThankYou() {
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-white p-10 md:p-14 rounded-2xl shadow-xl border border-border text-center"
+          className="bg-white p-6 sm:p-10 md:p-14 rounded-2xl shadow-xl border border-border text-center"
         >
           <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
             <CheckCircle2 className="w-12 h-12" />
           </div>
 
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-secondary mb-6">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">
             Thank you for reaching out.
           </h1>
 
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
             Your information has been received securely. We treat all inquiries with the strictest confidentiality. Our team will review your details and contact you within 24 hours.
           </p>
 

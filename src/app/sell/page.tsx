@@ -12,17 +12,17 @@ export default function Sell() {
   return (
     <div className="w-full pb-12 bg-card">
       {/* HEADER */}
-      <section className="bg-secondary text-white pt-32 pb-16 relative overflow-hidden">
+      <section className="bg-secondary text-white pt-32 pb-16 xl:pt-40 xl:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
-        <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl xl:max-w-6xl relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-3xl xl:max-w-4xl mx-auto"
           >
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Ready to Sell Your Business?</h1>
-            <p className="text-lg sm:text-xl text-white/95 font-light">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold mb-6">Ready to Sell Your Business?</h1>
+            <p className="text-lg sm:text-xl xl:text-2xl text-white/95 font-light">
               A transparent, founder-friendly acquisition process designed to protect your legacy and reward your hard work.
             </p>
           </motion.div>
@@ -30,9 +30,9 @@ export default function Sell() {
       </section>
 
       {/* CONTENT & FORM LAYOUT */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <section className="py-12 sm:py-20 xl:py-28">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16">
 
             {/* Left Column: Info */}
             <motion.div
@@ -42,6 +42,7 @@ export default function Sell() {
                 hidden: { opacity: 0 },
                 visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
               }}
+              className=""
             >
               <motion.div variants={fadeInUp} className="mb-12">
                 <h2 className="font-serif text-3xl font-bold text-secondary mb-4">Our Ideal Target</h2>
@@ -90,8 +91,9 @@ export default function Sell() {
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
+              className=""
             >
-              <div className="sticky top-24">
+              <div className="md:sticky md:top-24">
                 <LeadForm />
               </div>
             </motion.div>

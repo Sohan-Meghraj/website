@@ -15,8 +15,8 @@ const handleHeroPrimaryClick = () => {
 };
 
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
 
 const staggerContainer: Variants = {
@@ -24,7 +24,7 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.1
     }
   }
 };
@@ -36,9 +36,9 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-x-clip">
       {/* HERO SECTION */}
-      <section className="relative min-h-[600px] md:min-h-[90vh] flex flex-col justify-center pt-28 pb-16 bg-secondary overflow-hidden">
+      <section className="relative min-h-[70vh] sm:min-h-[600px] md:min-h-[80vh] flex flex-col justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 bg-secondary overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-40 mix-blend-overlay"
           style={{
@@ -49,24 +49,25 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-secondary/90 to-secondary z-0" />
 
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl relative z-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl xl:max-w-5xl mx-auto text-center"
           >
             <motion.h1
               variants={fadeInUp}
-              className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight mb-6"
+              className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-6 xl:mb-8"
             >
-              Thinking of Selling Your Business? <br/>
+              Thinking of Selling Your Business?{" "}
+              <span className="hidden md:inline"><br/></span>
               <span className="text-primary">We Acquire and Grow Service Companies</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 max-w-2xl mx-auto font-light"
+              className="text-lg sm:text-xl md:text-2xl xl:text-3xl text-white/95 mb-10 xl:mb-14 max-w-2xl xl:max-w-3xl mx-auto font-light"
             >
               Founder-first. Long-term ownership. 100% confidential process.
             </motion.p>
@@ -76,7 +77,7 @@ export default function Home() {
                 size="lg"
                 data-testid="hero-cta-primary"
                 data-event="hero-cta-primary"
-                className="text-lg py-7 px-8 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                className="text-base sm:text-lg xl:text-xl py-6 px-6 sm:py-7 sm:px-8 xl:py-8 xl:px-10 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 onClick={handleHeroPrimaryClick}
               >
                 Talk to Us
@@ -84,7 +85,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                className="text-lg py-7 px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent font-semibold"
+                className="text-base sm:text-lg xl:text-xl py-6 px-6 sm:py-7 sm:px-8 xl:py-8 xl:px-10 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent font-semibold"
                 onClick={scrollToCriteria}
                 data-testid="hero-cta-secondary"
               >
@@ -97,17 +98,17 @@ export default function Home() {
       </section>
 
       {/* ACQUISITION CRITERIA */}
-      <section id="criteria" className="py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section id="criteria" className="py-16 sm:py-24 xl:py-28 bg-card">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-3xl xl:max-w-4xl mx-auto mb-16 xl:mb-20"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">We Acquire Businesses Like Yours</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-secondary mb-6">We Acquire Businesses Like Yours</h2>
+            <p className="text-lg xl:text-xl text-muted-foreground">
               We focus on established service businesses with proven revenue streams and growth potential across India.
             </p>
           </motion.div>
@@ -117,7 +118,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16 xl:mb-20"
           >
             {[
               { icon: Building, title: "Industry", desc: "Healthcare, Wellness, Allied Health, Professional Services — Serving patients, clients, or businesses across India's growing care economy" },
@@ -127,12 +128,12 @@ export default function Home() {
               { icon: User, title: "Ownership", desc: "Founder-led, owner-operated — We value businesses where the founder's fingerprint is still deeply embedded" },
               { icon: Clock, title: "Operating History", desc: "3+ years — Businesses with proven track records, customer loyalty, and operational maturity" }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white p-8 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-6">
-                  <item.icon className="w-6 h-6 text-primary" />
+              <motion.div key={i} variants={fadeInUp} className="bg-white p-6 sm:p-8 xl:p-10 rounded-xl shadow-sm border border-border hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 xl:w-14 xl:h-14 bg-accent rounded-lg flex items-center justify-center mb-6">
+                  <item.icon className="w-6 h-6 xl:w-7 xl:h-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                <h3 className="text-xl xl:text-2xl font-semibold text-secondary mb-3">{item.title}</h3>
+                <p className="text-muted-foreground xl:text-lg leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -154,24 +155,24 @@ export default function Home() {
       </section>
 
       {/* PROCESS SECTION */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="py-16 sm:py-24 xl:py-28 bg-white">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-20"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">Sell Your Business in 3 Simple Steps</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-secondary mb-6">Sell Your Business in 3 Simple Steps</h2>
+            <p className="text-lg xl:text-xl text-muted-foreground max-w-2xl xl:max-w-3xl mx-auto">
               A transparent, unhurried process designed to respect your time and preserve confidentiality.
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Desktop Connector Line */}
-            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-border z-0">
+            <div className="hidden md:block absolute top-12 xl:top-14 left-[10%] right-[10%] h-[2px] bg-border z-0">
               <div className="absolute top-0 left-0 h-full bg-primary w-full origin-left scale-x-0 transition-transform duration-1000" />
             </div>
 
@@ -180,7 +181,7 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 sm:gap-12 xl:gap-16 relative z-10"
             >
               {[
                 { step: "01", title: "Confidential Intro Call", desc: "30-minute call to understand your goals. Zero obligation. Zero information shared externally." },
@@ -188,11 +189,11 @@ export default function Home() {
                 { step: "03", title: "Smooth Transition & Growth", desc: "We work alongside you for a transition that protects your team, customers, and legacy." }
               ].map((item, i) => (
                 <motion.div key={i} variants={fadeInUp} className="relative flex flex-col items-center text-center">
-                  <div className="w-24 h-24 rounded-full bg-accent border-4 border-white shadow-lg flex items-center justify-center mb-6 z-10 relative">
-                    <span className="font-serif text-2xl font-bold text-primary">{item.step}</span>
+                  <div className="w-24 h-24 xl:w-28 xl:h-28 rounded-full bg-accent border-4 border-white shadow-lg flex items-center justify-center mb-6 z-10 relative">
+                    <span className="font-serif text-2xl xl:text-3xl font-bold text-primary">{item.step}</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-secondary mb-4">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed px-4">{item.desc}</p>
+                  <h3 className="text-2xl xl:text-3xl font-semibold text-secondary mb-4">{item.title}</h3>
+                  <p className="text-muted-foreground xl:text-lg leading-relaxed px-4">{item.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -213,18 +214,18 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 bg-secondary text-white relative">
+      <section className="py-16 sm:py-24 xl:py-28 bg-secondary text-white relative">
         <div className="absolute inset-0 bg-[url('/hero-bg.svg')] opacity-10 bg-cover bg-center mix-blend-overlay" />
-        <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-5xl xl:max-w-6xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-16 xl:mb-20"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Why Choose Pyrite Ventures</h2>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold mb-6">Why Choose Pyrite Ventures</h2>
+            <p className="text-lg xl:text-xl text-white/90 max-w-2xl xl:max-w-3xl mx-auto">
               We are not flippers or brokers. We buy to hold, build, and grow.
             </p>
           </motion.div>
@@ -236,9 +237,10 @@ export default function Home() {
             variants={fadeInUp}
             className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden"
           >
-            <div className="grid grid-cols-2 text-lg font-semibold border-b border-white/10">
+            {/* Mobile: stacked layout | sm+: side-by-side */}
+            <div className="hidden sm:grid grid-cols-2 text-lg xl:text-xl font-semibold border-b border-white/10">
               <div className="p-6 md:p-8 text-primary border-r border-white/10">Pyrite Ventures</div>
-              <div className="p-6 md:p-8 text-white/50">Traditional PE / Brokers</div>
+              <div className="p-6 md:p-8 text-white/80">Traditional PE / Brokers</div>
             </div>
 
             {[
@@ -249,13 +251,26 @@ export default function Home() {
               ["Transparent process", "Complex, opaque terms"],
               ["India-focused, culturally aware", "Generic global playbook"]
             ].map((row, i) => (
-              <div key={i} className={`grid grid-cols-2 ${i !== 5 ? 'border-b border-white/5' : ''}`}>
-                <div className="p-6 flex items-start gap-3 border-r border-white/5 bg-primary/5">
-                  <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-white/90">{row[0]}</span>
+              <div key={i} className={`${i !== 5 ? 'border-b border-white/10 sm:border-white/5' : ''}`}>
+                {/* Desktop: side-by-side */}
+                <div className="hidden sm:grid grid-cols-2">
+                  <div className="p-6 xl:p-8 flex items-start gap-3 border-r border-white/5 bg-primary/5">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-base xl:text-lg">{row[0]}</span>
+                  </div>
+                  <div className="p-6 xl:p-8 flex items-start gap-3">
+                    <span className="text-white/70 text-base xl:text-lg">{row[1]}</span>
+                  </div>
                 </div>
-                <div className="p-6 flex items-start gap-3 opacity-60">
-                  <span className="text-white/50">{row[1]}</span>
+                {/* Mobile: stacked */}
+                <div className="sm:hidden p-4 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                    <span className="text-white/90 text-base">{row[0]}</span>
+                  </div>
+                  <div className="pl-6">
+                    <span className="text-white/70 text-sm">vs. {row[1]}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -264,9 +279,9 @@ export default function Home() {
       </section>
 
       {/* FOUNDER SECTION */}
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+      <section className="py-16 sm:py-24 xl:py-28 bg-card">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 xl:gap-16 items-start">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -274,10 +289,10 @@ export default function Home() {
               variants={fadeInUp}
               className="md:col-span-5 relative"
             >
-              <div className="h-80 rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
+              <div className="h-80 xl:h-96 rounded-2xl overflow-hidden shadow-2xl relative bg-gradient-to-br from-secondary via-secondary to-[#2A2A4A] flex items-center justify-center">
                 <div className="flex flex-col items-center justify-center select-none">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
-                    <span className="font-serif text-5xl font-bold text-white">PV</span>
+                  <div className="w-32 h-32 xl:w-40 xl:h-40 rounded-full bg-gradient-to-br from-primary to-[#8B6508] flex items-center justify-center shadow-xl">
+                    <span className="font-serif text-5xl xl:text-6xl font-bold text-white">PV</span>
                   </div>
                   <span className="text-xs mt-4 text-white/50 tracking-wider uppercase">Founder Photo</span>
                 </div>
@@ -294,22 +309,22 @@ export default function Home() {
               className="md:col-span-7 space-y-8"
             >
               <div>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-2">Meet Our Founder</h2>
-                <p className="text-xl text-primary font-medium">Founder & CEO, Pyrite Ventures</p>
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-secondary mb-2">Meet Our Founder</h2>
+                <p className="text-xl xl:text-2xl text-primary font-medium">Founder & CEO, Pyrite Ventures</p>
               </div>
 
               <motion.div variants={fadeInUp} className="prose prose-lg max-w-none text-muted-foreground">
                 <p>
                   With over two decades of experience spanning healthcare, digital transformation, and business strategy, our founder has led large-scale growth initiatives at leading healthcare and financial services organizations across India and globally.
                 </p>
-                <div className="flex items-center gap-4 text-sm font-medium text-secondary/80 mt-4 pb-4 border-b border-border">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm font-medium text-secondary/80 mt-4 pb-4 border-b border-border">
                   <span>Meridian Health</span> <ArrowRight className="w-4 h-4 text-primary" />
                   <span>Apex Insurance</span> <ArrowRight className="w-4 h-4 text-primary" />
                   <span className="text-primary">Pyrite Ventures</span>
                 </div>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="bg-accent p-8 rounded-xl border border-primary/20 relative">
+              <motion.div variants={fadeInUp} className="bg-accent p-5 sm:p-8 rounded-xl border border-primary/20 relative">
                 <div className="text-6xl text-primary/30 absolute top-4 left-4 font-serif leading-none">&quot;</div>
                 <p className="text-lg font-serif italic text-secondary/90 relative z-10 pl-6 leading-relaxed">
                   I started Pyrite because I believe great businesses deserve great stewardship — not just a transaction. I know what it means to pour your life into building something. I want to be the partner I wish more founders had.
@@ -335,16 +350,16 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8 mt-16 xl:mt-20"
           >
             {[
               { stat: "Enterprise", label: "Advisory Experience" },
               { stat: "₹1000+ Cr", label: "Revenue Impact Driven" },
               { stat: "20+ Years", label: "Healthcare & Digital Transformation" }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeInUp} className="bg-white p-6 rounded-xl border border-border shadow-sm text-center">
-                <div className="font-serif text-3xl font-bold text-secondary mb-2">{item.stat}</div>
-                <div className="text-muted-foreground font-medium">{item.label}</div>
+              <motion.div key={i} variants={fadeInUp} className="bg-white p-6 xl:p-8 rounded-xl border border-border shadow-sm text-center">
+                <div className="font-serif text-3xl xl:text-4xl font-bold text-secondary mb-2">{item.stat}</div>
+                <div className="text-muted-foreground xl:text-lg font-medium">{item.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -352,44 +367,44 @@ export default function Home() {
       </section>
 
       {/* SOCIAL PROOF */}
-      <section className="py-24 bg-white border-y border-border">
-        <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+      <section className="py-16 sm:py-24 xl:py-28 bg-white border-y border-border">
+        <div className="container mx-auto px-4 md:px-8 max-w-6xl xl:max-w-7xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="flex flex-col md:flex-row justify-center items-center gap-8 mb-16 p-6 bg-secondary text-white rounded-2xl"
+            className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 xl:gap-12 mb-16 xl:mb-20 p-5 sm:p-6 xl:p-10 bg-secondary text-white rounded-2xl"
           >
-            <div className="text-center md:border-r border-white/20 px-8">
-              <div className="font-serif text-3xl font-bold text-primary mb-1">5+</div>
-              <div className="text-sm text-white/90">businesses evaluated</div>
+            <div className="text-center md:border-r border-white/20 px-4 sm:px-8 xl:px-12">
+              <div className="font-serif text-2xl sm:text-3xl xl:text-4xl font-bold text-primary mb-1">5+</div>
+              <div className="text-sm xl:text-base text-white/90">businesses evaluated</div>
             </div>
-            <div className="text-center md:border-r border-white/20 px-8">
-              <div className="font-serif text-3xl font-bold text-primary mb-1">Pan-India</div>
-              <div className="text-sm text-white/90">active discussions</div>
+            <div className="text-center md:border-r border-white/20 px-4 sm:px-8 xl:px-12">
+              <div className="font-serif text-2xl sm:text-3xl xl:text-4xl font-bold text-primary mb-1">Pan-India</div>
+              <div className="text-sm xl:text-base text-white/90">active discussions</div>
             </div>
-            <div className="text-center px-8">
-              <div className="font-serif text-3xl font-bold text-primary mb-1">100%</div>
-              <div className="text-sm text-white/90">confidential process</div>
+            <div className="text-center px-4 sm:px-8 xl:px-12">
+              <div className="font-serif text-2xl sm:text-3xl xl:text-4xl font-bold text-primary mb-1">100%</div>
+              <div className="text-sm xl:text-base text-white/90">confidential process</div>
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 xl:gap-10">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-card p-8 rounded-xl border border-border"
+              className="bg-card p-6 sm:p-8 xl:p-10 rounded-xl border border-border"
             >
-              <div className="flex gap-1 text-primary mb-6" role="img" aria-label="5 out of 5 stars">
+              <div className="flex gap-1 text-primary mb-4 sm:mb-6" role="img" aria-label="5 out of 5 stars">
                 {[1,2,3,4,5].map(star => <svg key={star} aria-hidden="true" className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
               </div>
-              <p className="text-lg text-secondary italic mb-6">
+              <p className="text-base sm:text-lg xl:text-xl text-secondary italic mb-6">
                 &quot;Working with Pyrite felt completely different from every other buyer I met. They genuinely cared about what happened to my team. It wasn&apos;t just a financial transaction for them.&quot;
               </p>
-              <div className="font-semibold text-secondary">— Founder, Healthcare Services (Mumbai)</div>
+              <div className="font-semibold text-secondary text-sm sm:text-base xl:text-lg">— Founder, Healthcare Services (Mumbai)</div>
             </motion.div>
 
             <motion.div
@@ -397,32 +412,32 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-card p-8 rounded-xl border border-border"
+              className="bg-card p-6 sm:p-8 xl:p-10 rounded-xl border border-border"
             >
-              <div className="flex gap-1 text-primary mb-6" role="img" aria-label="5 out of 5 stars">
+              <div className="flex gap-1 text-primary mb-4 sm:mb-6" role="img" aria-label="5 out of 5 stars">
                 {[1,2,3,4,5].map(star => <svg key={star} aria-hidden="true" className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
               </div>
-              <p className="text-lg text-secondary italic mb-6">
+              <p className="text-base sm:text-lg xl:text-xl text-secondary italic mb-6">
                 &quot;The process was transparent from day one. No surprises, no games. Just a fair, founder-friendly conversation about the future of my business.&quot;
               </p>
-              <div className="font-semibold text-secondary">— Owner, Wellness Chain (Bangalore)</div>
+              <div className="font-semibold text-secondary text-sm sm:text-base xl:text-lg">— Owner, Wellness Chain (Bangalore)</div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* FAQ SECTION */}
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+      <section className="py-16 sm:py-24 xl:py-28 bg-card">
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl xl:max-w-5xl">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-secondary mb-6">Frequently Asked Questions</h2>
-            <p className="text-lg text-muted-foreground">Clear answers about our process and philosophy.</p>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold text-secondary mb-6">Frequently Asked Questions</h2>
+            <p className="text-lg xl:text-xl text-muted-foreground">Clear answers about our process and philosophy.</p>
           </motion.div>
 
           <motion.div
@@ -480,9 +495,9 @@ export default function Home() {
       </section>
 
       {/* LEAD CAPTURE FORM SECTION */}
-      <section id="contact-section" className="py-24 bg-white relative">
+      <section id="contact-section" className="py-16 sm:py-24 xl:py-28 bg-white relative">
         <div className="absolute top-0 left-0 w-full h-1/2 bg-card z-0" />
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-4xl xl:max-w-5xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"

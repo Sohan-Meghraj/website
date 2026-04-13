@@ -55,36 +55,40 @@ export function StickyCTA() {
   }, [pathname]);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          className="fixed z-40 bottom-0 left-0 w-full md:w-auto md:bottom-8 md:right-8 md:left-auto"
-        >
-          {/* Mobile version (full width bottom) */}
-          <div className="md:hidden">
-            <Button
-              onClick={handleStickyClick}
-              className="w-full rounded-none bg-primary hover:bg-primary/90 text-secondary py-7 text-lg font-semibold shadow-lg flex items-center justify-center gap-2"
-            >
-              Talk to Us <ArrowRight size={20} />
-            </Button>
-          </div>
+    <>
+      {/* Spacer to prevent content from being hidden behind mobile sticky bar */}
+      {isVisible && <div className="h-[72px] md:hidden" />}
+      <AnimatePresence>
+        {isVisible && (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="fixed z-40 bottom-0 left-0 w-full md:w-auto md:bottom-8 md:right-8 md:left-auto"
+          >
+            {/* Mobile version (full width bottom) */}
+            <div className="md:hidden">
+              <Button
+                onClick={handleStickyClick}
+                className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-lg font-semibold shadow-lg flex items-center justify-center gap-2"
+              >
+                Talk to Us <ArrowRight size={20} />
+              </Button>
+            </div>
 
-          {/* Desktop version (floating button) */}
-          <div className="hidden md:block">
-            <Button
-              onClick={handleStickyClick}
-              className="rounded-full bg-primary hover:bg-primary/90 text-secondary py-7 px-8 text-lg font-semibold shadow-xl border-2 border-primary-foreground/20 hover:scale-105 transition-transform duration-300 flex items-center gap-2"
-            >
-              Talk to Us <ArrowRight size={20} />
-            </Button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            {/* Desktop version (floating button) */}
+            <div className="hidden md:block">
+              <Button
+                onClick={handleStickyClick}
+                className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 px-8 text-lg font-semibold shadow-xl border-2 border-primary-foreground/20 hover:scale-105 transition-transform duration-300 flex items-center gap-2"
+              >
+                Talk to Us <ArrowRight size={20} />
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 

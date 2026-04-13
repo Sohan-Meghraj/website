@@ -101,7 +101,7 @@ export default function LeadForm() {
   };
 
   return (
-    <div className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-border">
+    <div className="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-lg border border-border">
       <h3 className="font-serif text-2xl font-semibold mb-2 text-secondary">
         Start a Confidential Conversation
       </h3>
@@ -119,7 +119,7 @@ export default function LeadForm() {
               <FormItem>
                 <FormLabel>Full Name *</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your full name" {...field} className="bg-card/50" autoComplete="name" />
+                  <Input placeholder="Your full name" {...field} className="bg-card/50" autoComplete="name" autoCapitalize="words" aria-required="true" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -133,7 +133,7 @@ export default function LeadForm() {
               <FormItem>
                 <FormLabel>Email Address *</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="you@example.com" {...field} className="bg-card/50" autoComplete="email" />
+                  <Input type="email" placeholder="you@example.com" {...field} className="bg-card/50" autoComplete="email" aria-required="true" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -148,7 +148,7 @@ export default function LeadForm() {
                 <FormLabel>What are you exploring? *</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger className="bg-card/50">
+                    <SelectTrigger className="bg-card/50" aria-required="true">
                       <SelectValue placeholder="Select intent" />
                     </SelectTrigger>
                   </FormControl>
@@ -172,7 +172,8 @@ export default function LeadForm() {
                 setShowMoreFields(true);
                 track("lead_form_expand");
               }}
-              className="text-sm text-primary hover:text-primary/80 font-medium underline-offset-4 hover:underline"
+              className="text-sm text-primary hover:text-primary/80 font-medium underline-offset-4 hover:underline py-3 px-1"
+              aria-expanded={showMoreFields}
             >
               + Add business details (optional)
             </button>
@@ -194,7 +195,7 @@ export default function LeadForm() {
                 )}
               />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 <FormField
                   control={form.control}
                   name="businessType"
